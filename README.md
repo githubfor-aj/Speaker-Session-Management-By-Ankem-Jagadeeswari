@@ -1,18 +1,110 @@
-# Salesforce DX Project: Next Steps
+# Speaker Session Management – Salesforce DX Project
 
-Now that you’ve created a Salesforce DX project, what’s next? Here are some documentation resources to get you started.
+## 📌 Overview
 
-## How Do You Plan to Deploy Your Changes?
+This project is developed as part of the **Junior Salesforce Developer Assessment**.
+It implements a **Speaker Session Management** system using  **Apex**, and **Lightning Web Components (LWC)**, etc.,.
 
-Do you want to deploy a set of changes, or create a self-contained application? Choose a [development model](https://developer.salesforce.com/tools/vscode/en/user-guide/development-models).
+The application allows users to:
 
-## Configure Your Salesforce DX Project
+* Manage Speakers and Sessions
+* Search speakers by name and speciality
+* View available session slots
+* Book sessions with validation rules enforced
+* Ensure data integrity through triggers and Apex logic
 
-The `sfdx-project.json` file contains useful configuration information for your project. See [Salesforce DX Project Configuration](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_ws_config.htm) in the _Salesforce DX Developer Guide_ for details about this file.
+---
 
-## Read All About It
+## 🛠️ Tech Stack
 
-- [Salesforce Extensions Documentation](https://developer.salesforce.com/tools/vscode/)
-- [Salesforce CLI Setup Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_setup.meta/sfdx_setup/sfdx_setup_intro.htm)
-- [Salesforce DX Developer Guide](https://developer.salesforce.com/docs/atlas.en-us.sfdx_dev.meta/sfdx_dev/sfdx_dev_intro.htm)
-- [Salesforce CLI Command Reference](https://developer.salesforce.com/docs/atlas.en-us.sfdx_cli_reference.meta/sfdx_cli_reference/cli_reference.htm)
+
+* Apex Classes & Triggers
+* Lightning Web Components (LWC)
+* Lightning Message Channel
+* Custom Objects & Fields
+* Validation Rules
+* FlexiPages & Lightning App
+* GitHub (Version Control)
+* Salesforce DX (SFDX)
+
+---
+
+## 📂 Project Structure
+
+```
+force-app/main/default
+├── applications
+├── classes
+├── flexipages
+├── layouts
+├── lwc
+├── messageChannels
+├── objects
+├── profiles
+├── tabs
+├── triggers
+```
+
+---
+
+## 📦 Key Components
+
+### 🔹 Custom Objects
+
+* **Speaker__c**
+* **Session__c**
+* **Speaker_Assignment__c**
+
+### 🔹 Apex Classes
+
+* `SpeakerSearchController`
+* `SpeakerBookingController`
+* `SpeakerSlotController`
+* `SpeakerAssignmentHandler`
+
+### 🔹 Lightning Web Components
+
+* `speakerSearch`
+* `speakerList`
+* `bookSession`
+
+### 🔹 Validations & Automation
+
+* Session date must be in the future
+* End time must be after start time
+* Trigger-based assignment handling
+* Test class coverage included
+
+
+## ✅ Testing
+
+All Apex logic is covered with test classes to ensure reliability and correctness.
+
+
+---
+
+## ✅ Deployment
+
+The project is structured as a **Salesforce DX project** and can be deployed using:
+
+```bash
+sfdx force:source:deploy -p force-app
+```
+
+Metadata can also be retrieved or deployed selectively using `package.xml`.
+
+---
+
+---
+
+## 👤 Author
+
+**Ankem Jagadeeswari**
+           - Assessment Submission
+
+---
+
+## 📄 Notes
+
+* This repository is created specifically for assessment purposes.
+* All implementation follows Salesforce best practices.
