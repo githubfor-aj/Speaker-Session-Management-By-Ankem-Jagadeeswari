@@ -1,0 +1,41 @@
+Name,Email,Bio,Speciality__c
+John Doe,john.doe@example.com,Expert in Apex development,Apex
+Jane Smith,jane.smith@example.com,Front-end LWC specialist,LWC
+Alex Johnson,alex.johnson@example.com,Integration architect,Integrations
+Maria Lee,maria.lee@example.com,Experienced in Salesforce architecture,Architecture
+David Kim,david.kim@example.com,LWC and Apex developer,LWC
+Emily Clark,emily.clark@example.com,Integration expert,Integrations
+Michael Brown,michael.brown@example.com,Apex and backend development,Apex
+Sarah Wilson,sarah.wilson@example.com,LWC components guru,LWC
+William Davis,william.davis@example.com,Enterprise architecture,Architecture
+Linda Martinez,linda.martinez@example.com,Integration strategy,Integrations
+Robert Taylor,robert.taylor@example.com,Senior Apex dev,Apex
+Patricia Anderson,patricia.anderson@example.com,LWC trainer,LWC
+Charles Thomas,charles.thomas@example.com,Integration consultant,Integrations
+Barbara Jackson,barbara.jackson@example.com,Salesforce architect,Architecture
+Joseph White,joseph.white@example.com,Advanced Apex development,Apex
+Jennifer Harris,jennifer.harris@example.com,LWC advanced,LWC
+Thomas Martin,thomas.martin@example.com,Integration solutions,Integrations
+Susan Thompson,susan.thompson@example.com,Enterprise architecture design,Architecture
+Christopher Garcia,christopher.garcia@example.com,Apex coding expert,Apex
+Margaret Martinez,margaret.martinez@example.com,LWC expert,LWC
+Daniel Robinson,daniel.robinson@example.com,Integration architect,Integrations
+Dorothy Clark,dorothy.clark@example.com,Architectural strategy,Architecture
+Matthew Rodriguez,matthew.rodriguez@example.com,Apex dev, Apex
+Elizabeth Lewis,elizabeth.lewis@example.com,LWC solutions,LWC
+Anthony Lee,anthony.lee@example.com,Integration projects,Integrations
+Karen Walker,karen.walker@example.com,Salesforce architecture,Architecture
+Mark Hall,mark.hall@example.com,Apex senior dev,Apex
+Nancy Allen,nancy.allen@example.com,LWC developer,LWC
+Steven Young,steven.young@example.com,Integration specialist,Integrations
+Betty Hernandez,betty.hernandez@example.com,Enterprise architecture,Architecture
+Paul King,paul.king@example.com,Apex trainer,Apex
+Sandra Wright,sandra.wright@example.com,LWC components,LWC
+George Scott,george.scott@example.com,Integration consultant,Integrations
+Ashley Green,ashley.green@example.com,Architecture lead,Architecture
+Kenneth Adams,kenneth.adams@example.com,Apex developer,Apex
+Kimberly Baker,kimberly.baker@example.com,LWC solutions,LWC
+Brian Gonzalez,brian.gonzalez@example.com,Integration dev,Integrations
+Deborah Nelson,deborah.nelson@example.com,Architect specialist,Architecture
+Edward Carter,edward.carter@example.com,Apex senior,LWC
+Shirley Mitchell,shirley.mitchell@example.com,LWC expert,LWC
