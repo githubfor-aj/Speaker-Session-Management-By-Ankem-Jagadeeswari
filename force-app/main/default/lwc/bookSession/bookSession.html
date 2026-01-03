@@ -1,0 +1,122 @@
+<template>
+    <lightning-card class="lux-card" title="Speaker Details And Availability">
+
+        <!-- HERO -->
+        <template if:true={speaker.Name}>
+            <div class="hero">
+                <lightning-avatar size="large" variant="circle"></lightning-avatar>
+                <div>
+                    <h1>{speaker.Name}</h1>
+                    <p> {speaker.Bio__c}</p>
+                    <p>{speaker.Speciality__c}</p>
+                </div>
+            </div>
+        </template>
+        <template if:false={speaker.Name}>
+            <div class="select-speaker">
+                Select speaker to check availability
+            </div>
+        </template>
+
+        <!-- MONTH NAV -->
+        <template if:true={speaker.Name}>
+        <div class="month-strip">
+            <lightning-button-icon
+                icon-name="utility:chevronleft"
+                onclick={prevMonth}
+                alternative-text="Previous Month">
+            </lightning-button-icon>
+
+            <span class="month-label">{monthLabel}</span>
+
+            <lightning-button-icon
+                icon-name="utility:chevronright"
+                onclick={nextMonth}
+                alternative-text="Next Month">
+            </lightning-button-icon>
+        </div>
+        </template>
+    
+        <!-- CALENDAR SCROLL -->
+        <template if:true={speaker.Name}>
+        <div class="calendar-scroll">
+            <template for:each={calendarDatesToRender} for:item="day">
+                <div key={day.date} class={day.css} data-date={day.date} tabindex="0" onclick={handleDayClick} title={day.tooltip}>
+    
+    <!-- Today label above the day number -->
+    <template if:true={day.isToday}>
+        <span class="today-label">Today</span>
+    </template>
+
+    <span class="day-num">{day.label}</span>
+
+    <!-- Dot indicator -->
+    <template if:true={day.isFuture}>
+        <!-- Dot indicator -->
+<template if:true={day.hasAnySessions}>
+    <template if:true={day.hasAvailableSlot}>
+        <span class="day-dot dot-green"></span>
+    </template>
+    <template if:true={day.isFullyBookedOrOverlapped}>
+        <span class="day-dot dot-orange"></span>
+    </template>
+</template>
+
+    </template>
+</div>
+
+            </template>
+        </div>
+        </template>
+
+       
+        <!-- Legend for session states -->
+         <template if:true={speaker.Name}>
+<div class="legend">
+    <span class="legend-swatch legend-available"></span>
+    <span class="legend-label">Available</span>
+    <span class="legend-swatch legend-booked"></span>
+    <span class="legend-label">Overlapped/Booked</span>
+    <span class="legend-swatch legend-disabled"></span>
+    <span class="legend-label">Past or No Sessions</span>
+</div></template>
+
+
+        <!-- SLOTS -->
+        <template if:true={speaker.Name}>
+        <template if:true={selectedDate}>
+            <div class="slot-wrapper">
+                <h2>Sessions on {selectedDate}</h2>
+
+                <!-- Legend removed as requested -->
+
+                <div class="slot-scroll">
+                    <template for:each={selectedDaySlots} for:item="slot">
+                        <div key={slot.sessionId} class="slot-card" title={slot.title}>
+                            <div>
+                                <div class="slot-time">{slot.startTime} – {slot.endTime}</div>
+                                <div class="slot-title">{slot.title}</div>
+                            </div>
+
+                            <lightning-button
+                                label={slot.buttonLabel}
+                                variant={slot.buttonVariant}
+                                disabled={slot.isDisabled}
+                                data-id={slot.sessionId}
+                                onclick={bookSlot}>
+                            </lightning-button>
+                        </div>
+                    </template>
+
+                    <template if:false={selectedDaySlots.length}>
+                        <div class="empty-state">
+                            No sessions available 🌙
+                        </div>
+                    </template>
+                </div>
+            </div>
+        </template>
+        </template>
+
+    </lightning-card>
+</template>

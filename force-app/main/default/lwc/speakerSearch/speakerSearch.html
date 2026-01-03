@@ -1,0 +1,33 @@
+<!-- speakerSearch.html -->
+<template>
+    <lightning-card title="Speaker Explorer">
+        <div class="slds-p-around_small">
+            <lightning-input 
+                label="Name" 
+                value={name} 
+                onchange={handleNameChange}>
+            </lightning-input>
+
+            <lightning-combobox 
+                label="Speciality" 
+                value={speciality} 
+                options={specialityOptions} 
+                onchange={handleSpecialityChange}
+                class="slds-m-top_medium">
+            </lightning-combobox>
+
+            <!-- spacing added here -->
+            <div class="slds-m-top_medium">
+                <lightning-button 
+                    label="Search" 
+                    onclick={handleSearch}>
+                </lightning-button>
+            </div>
+        </div>
+
+        <c-speaker-list 
+            speakers={speakers} 
+            onspeakerselected={handleSpeakerSelected}>
+        </c-speaker-list>
+    </lightning-card>
+</template>

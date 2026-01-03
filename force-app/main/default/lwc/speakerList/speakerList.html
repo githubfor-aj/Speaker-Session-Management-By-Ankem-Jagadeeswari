@@ -1,0 +1,12 @@
+<!-- speakerList.html -->
+<template>
+    <div class="scrollable-container">
+        <lightning-datatable
+            data={speakers}
+            columns={columns}
+            key-field="Id"
+            hide-checkbox-column="true"
+            onrowaction={handleRowAction}>
+        </lightning-datatable>
+    </div>
+</template>

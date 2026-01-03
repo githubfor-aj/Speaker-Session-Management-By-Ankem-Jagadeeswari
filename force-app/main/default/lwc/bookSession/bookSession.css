@@ -1,0 +1,308 @@
+:host {
+    --primary: #6366F1;
+    --primary-dark: #4F46E5;
+    --primary-light: #A78BFA;
+    --selected: #9333EA;
+    --selected-dark: #7E22CE;
+    --available: #22C55E;
+    --fully-booked: #EF4444;
+    --overlap: #F59E0B;
+    --text-main: #1F2937;
+    --text-muted: #6B7280;
+    --bg-soft: #F5F3FF;
+    --bg-card: #FFFFFF;
+    --shadow-light: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+    --shadow-medium: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+    --shadow-heavy: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.lux-card {
+    border-radius: 24px;
+    background: linear-gradient(135deg, #F0F9FF 0%, #F0F4FF 100%);
+    box-shadow: var(--shadow-heavy);
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.5);
+    backdrop-filter: blur(10px);
+}
+
+.hero {
+    display: flex;
+    gap: 20px;
+    padding: 24px;
+    background: linear-gradient(135deg, var(--primary-dark), var(--selected-dark));
+    color: white;
+    border-radius: 24px 24px 0 0;
+    box-shadow: var(--shadow-medium);
+    position: relative;
+    overflow: hidden;
+}
+.hero::before {
+    content: "";
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, transparent 70%);
+    transform: rotate(30deg);
+}
+
+.hero h1 {
+    font-size: 1.5rem;
+    font-weight: 800;
+}
+
+.hero p {
+    margin: 4px 0 0 0;
+    font-size: 0.9rem;
+    font-weight: 500;
+}
+
+.month-strip {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 16px;
+    padding: 16px;
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: var(--text-main);
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 16px;
+    margin: 16px;
+    box-shadow: var(--shadow-light);
+}
+
+.calendar-scroll {
+    display: flex;
+    gap: 14px;
+    padding: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+}
+
+/* Calendar day indicator dots matching legend semantics */
+.day {
+    min-width: 90px;
+    height: 120px;
+    background: var(--bg-card);
+    border-radius: 20px;
+    padding: 14px;
+    scroll-snap-align: center;
+    cursor: pointer;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    z-index: 1;
+}
+.day::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    z-index: -1;
+}
+
+.day:hover,
+.day:focus {
+    transform: translateY(-8px) scale(1.07);
+    box-shadow: var(--shadow-heavy);
+    outline: none;
+    z-index: 2;
+}
+
+.day.selected {
+    background: linear-gradient(135deg, var(--selected-dark), var(--primary-dark));
+    color: white;
+    box-shadow: var(--shadow-medium);
+    animation: pulse 2s infinite;
+}
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(147, 51, 234, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(147, 51, 234, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(147, 51, 234, 0); }
+}
+
+.day.past {
+    opacity: 0.4;
+    pointer-events: none;
+    filter: grayscale(100%);
+}
+
+.day.full {
+    background: var(--bg-card);
+    border: 1px dashed var(--fully-booked);
+}
+.day.full .day-num {
+    color: var(--fully-booked);
+}
+.day.full .day-dot {
+    background: var(--fully-booked);
+    animation: none;
+}
+
+.day-num {
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+
+/* Calendar day indicator dots matching legend semantics */
+.day-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    display: inline-block;
+    margin-top: 6px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
+}
+.dot-green {
+    background: var(--available, #22C55E);
+}
+.dot-orange {
+    background: var(--overlap, #EF4444);
+}
+.dot-grey {
+    background: #CBD5E1;
+}
+.slot-wrapper {
+    padding: 20px;
+}
+
+.slot-scroll {
+    max-height: 400px;
+    overflow-y: auto;
+    padding-right: 6px;
+}
+
+.slot-card {
+    background: var(--bg-card);
+    border-radius: 18px;
+    padding: 18px;
+    margin-bottom: 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: var(--shadow-light);
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+    border-left: 4px solid var(--available);
+}
+.slot-card::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.05);
+    z-index: -1;
+}
+
+.slot-card:hover {
+    transform: translateX(8px);
+    background: var(--bg-soft);
+    box-shadow: var(--shadow-medium);
+}
+
+.slot-card.overlapping {
+    border-left-color: var(--overlap);
+    background: rgba(245, 158, 11, 0.05);
+}
+
+.slot-card .slds-button[disabled] {
+    background-color: var(--bg-card);
+    border-color: var(--text-muted);
+    color: var(--text-muted);
+    box-shadow: inset 0 0 0 1px var(--text-muted);
+}
+
+.slot-time {
+    font-weight: 700;
+    color: var(--text-main);
+    font-size: 1.1rem;
+    letter-spacing: 0.5px;
+}
+
+.slot-title {
+    font-size: 0.95rem;
+    color: var(--text-muted);
+    line-height: 1.4;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 32px;
+    color: var(--text-muted);
+    font-style: italic;
+    font-size: 1rem;
+    border-radius: 16px;
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.select-speaker {
+    text-align: center;
+    padding: 48px;
+    font-weight: 600;
+    font-size: 1.2rem;
+    color: var(--text-muted);
+    background: rgba(0, 0, 0, 0.03);
+    border-radius: 16px;
+    margin: 20px;
+}
+
+/* Legend styles */
+.legend {
+    display: flex;
+    gap: 16px;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-muted);
+}
+.legend-swatch {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    display: inline-block;
+    box-shadow: 0 0 0 1px rgba(0,0,0,0.08);
+}
+.legend-available {
+    background: var(--available, var(--slds-g-color-success-base-50, #2e844a));
+}
+.legend-booked {
+    background: var(--fully-booked, var(--slds-g-color-warning-base-50, #EF4444));
+}
+.legend-label {
+    font-size: 0.8rem;
+    color: var(--text-muted);
+}
+.day.today {
+    border-left: 4px solid var(--primary-dark); /* Optional side border */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Today label above day number */
+.day.today .today-label {
+    font-size: 0.7rem;
+    font-weight: 700;
+    color: var(--primary-dark);
+    margin-bottom: 4px;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 2px 6px;
+    border-radius: 6px;
+}
