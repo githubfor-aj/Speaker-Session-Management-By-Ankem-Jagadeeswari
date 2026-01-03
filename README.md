@@ -1,8 +1,8 @@
-# Speaker Session Management – Salesforce DX Project
+# Speaker Session Management – Assessment
 
 ## 📌 Overview
 
-This project is developed as part of the **Junior Salesforce Developer Assessment**.
+This project is developed as part of the **Salesforce Developer Assessment**.
 It implements a **Speaker Session Management** system using  **Apex**, and **Lightning Web Components (LWC)**, etc.,.
 
 The application allows users to:
