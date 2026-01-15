@@ -1,4 +1,4 @@
-# Speaker Session Management – Assessment
+# Speaker Session Management
 
 ## 📌 Overview
 
