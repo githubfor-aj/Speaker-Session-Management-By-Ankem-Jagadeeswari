@@ -100,11 +100,10 @@ Metadata can also be retrieved or deployed selectively using `package.xml`.
 ## 👤 Author
 
 **Ankem Jagadeeswari**
-           - Assessment Submission
+     
 
 ---
 
 ## 📄 Notes
 
-* This repository is created specifically for assessment purposes.
 * All implementation follows Salesforce best practices.
